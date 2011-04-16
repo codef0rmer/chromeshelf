@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChromeShelf - An eBook Shelf</title>
+    <link rel="stylesheet" href="./popup.css" type="text/css" />
+    <script language="javascript" src="./jquery-1.4.2.js"></script>
+    <script  type="text/javascript" src="./urlEncode.js"></script>
+    <script src="./popup.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>ChromeShelf - An eBookshelf</h1>
+    <div id="results">
+    </div>
+    <input type="text" id="add" onkeyup="chromeshelf.newEbook(event)" placeholder="Enter Local file path and press enter(e.g. /home/codef0rmer/google.pdf)..." />
+</body>
+</html>

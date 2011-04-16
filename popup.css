@@ -1,0 +1,139 @@
+body
+{
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 500px;
+	color: #333333;
+	overflow: hidden;
+}
+
+h1
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#CC9933), to(#666600));
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 80%;
+	padding: 7px 10px;
+	margin: 0;
+}
+
+#results
+{
+	max-height: 400px;
+	overflow: auto;
+}
+
+#results .item:nth-child(even)
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#fff));
+}
+#results .item:nth-child(odd)
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(fff));
+}
+
+.item
+{
+	padding: .5em;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#fff));
+	-webkit-transition: all .4s;
+}
+
+.item.removed
+{
+	-webkit-transform: translate(-100%, 0);
+	opacity: 0;
+}
+
+.item .title
+{
+	line-height: 20px;
+	margin-bottom: 3px;
+	font-size: 14px;
+	width: 80%;
+	display: inline-block;
+	cursor: text;
+	-webkit-transition: color .3s; /*	text-shadow: 0px 1px 0px #ddd;*/
+	border: 0;
+	background: transparent;
+	margin: 0;
+	color: #333333;
+}
+
+.item .title:focus { outline: none; }
+
+.item input[type=checkbox]:checked + .title
+{
+	text-decoration: line-through;
+	color: #999999;
+}
+
+.item .remove
+{
+	text-indent: -9999px;
+	-webkit-appearance: none;
+	background: url('/images/remove.png') no-repeat center center;
+	cursor: pointer;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	visibility: hidden;
+	float: right;
+	margin-top: 0px;
+}
+
+.item:hover .remove { visibility: visible;}
+
+#add
+{
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 5px 3px;
+	width: 490px;
+}
+
+#add:focus
+{
+	outline: rgba(30, 30, 30, .1) solid 2px;
+}
+
+/* styles for checkboxes */
+
+input[type=checkbox]
+{
+	background: url('/images/unchecked.png') no-repeat center center;
+	cursor: pointer;
+	display: inline-block;
+	height: 22px;
+	margin: 0;
+	vertical-align: top;
+	width: 20px;
+	-webkit-appearance: none;
+}
+
+input[type=checkbox]:checked
+{
+	background: url('/images/checked.png') no-repeat center center;
+}
+
+input[type=checkbox]:disabled
+{
+	opacity: 0.5;
+}
+
+/* scrollbars */
+
+div::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #EEEEEE;
+}
+
+div::-webkit-scrollbar-button {
+	display: none;
+}
+
+div::-webkit-scrollbar-thumb
+{
+	background-color: #808080;
+}
