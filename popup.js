@@ -77,14 +77,27 @@ Chromeshelf.prototype = {
         $.each(JSON.parse(localStorage.ebooks), function(i){
             var filename = $.URLDecode(this.filename);
             var url = this.url;
+            var id = this.id;
             url = url.indexOf('file://') ==  0 ? url : 'file://'+url;
             $('div#results').append(
-                "<div class='item' id="+this.id+"><a style='cursor:pointer;' onclick=\"javascript:chrome.tabs.create({url: '"+url+"'});\" target='_blank' class='title' title='"+filename+"'>"+filename.substr(0, 50)+"</a><button class='remove' onclick='javascript:chromeshelf.removeEbook(this.parentNode.id)' title='Remove ebook'>Remove</button></div>"
-            );
+                "<div class='item' id="+id+"><a style='cursor:pointer;' target='_blank' class='title' title='"+filename+"'>"+filename.substr(0, 50)+"</a><button class='remove' title='Remove ebook'>Remove</button></div>"
+            ).find('div.item:last > a').click(function () {
+                chrome.tabs.create({url: url});
+            }).next().click(function () {
+                chromeshelf.removeEbook(id)
+            });
         });
     },
 };
 var db = new DB();
 var chromeshelf = new Chromeshelf();
 
-window.onload = function() { chromeshelf.init(); };
+window.onload = function() { 
+    chromeshelf.init();
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    $('#add').keyup(function () {
+        chromeshelf.newEbook(event);
+    });
+});

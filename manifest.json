@@ -1,7 +1,8 @@
 {
 	"name": "ChromeShelf",
-	"description": "Create an eBookshelf to access your local PDFs that you read often",
-	"version": "1.0.0",
+	"version": "1.0.1",
+	"manifest_version": 2,
+    "description": "Create an eBookshelf to access your local PDFs that you read often",
 	"icons": {
 		"16": "images/icon16.gif",
         "32": "images/icon32.gif",
@@ -11,7 +12,6 @@
 	"browser_action": {
 		"default_icon": "images/icon19.gif",
         "default_title": "An eBookshelf",
-		"popup": "popup.html"
-	},
-    "update_url": "http://clients2.google.com/service/update2/crx"
+		"default_popup": "popup.html"
+	}
 }
